@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import  express  from "express";
 import categoryRouter from "./routes/categoryRouter.js";
 import clientRouter from "./routes/clientRouter.js";
@@ -12,6 +13,16 @@ const port = process.env.PORT || 8080
 
 app.listen(port, ()=>{
     console.log("el servidor se esta ejecutando");
+})
+
+mongoose.connect("mongodb+srv://motorcycleapp:motorcycleapp@clustermotorcycle.5ueazyf.mongodb.net/Motorcycle?retryWrites=true&w=majority",(err)=>{
+    if (err){
+        console.log(err);
+    } else{
+        console.log("La base de datos se encuentra conectada")
+    }
+    
+
 })
 
 //Middlware

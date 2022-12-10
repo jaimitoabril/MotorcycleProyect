@@ -6,25 +6,25 @@ const motoRouter = express.Router()
 //POST
 
 motoRouter.post("/",(req,res) =>{
-    createMoto(res)
+    createMoto(req,res)
 });
 
 //GET
 
 motoRouter.get("/",(req,res) =>{
-    readMoto(res)    
+    readMoto(req,res)    
 });
 
 // PATCH
 
 motoRouter.patch("/",(req,res) =>{
-    updateMoto(res)
+    updateMoto(req,res)
 });
 
 //DELETE
 
 motoRouter.delete("/",(req,res) =>{
-    deleteMoto(res)
+    deleteMoto(req,res)
 });
 
 export default motoRouter
