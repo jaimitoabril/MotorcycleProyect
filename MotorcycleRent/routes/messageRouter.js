@@ -6,25 +6,25 @@ const messageRouter = express.Router()
 //POST
 
 messageRouter.post("/",(req,res) =>{
-    createMessage(res)
+    createMessage(req, res)
 });
 
 //GET
 
 messageRouter.get("/",(req,res) =>{
-    readMessage(res)    
+    readMessage(req, res)    
 });
 
 // PATCH
 
 messageRouter.patch("/",(req,res) =>{
-    updateMessage(res)
+    updateMessage(req, res)
 });
 
 //DELETE
 
 messageRouter.delete("/",(req,res) =>{
-    deleteMessage(res)
+    deleteMessage(req, res)
 });
 
 export default messageRouter

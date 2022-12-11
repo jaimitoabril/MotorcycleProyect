@@ -6,25 +6,25 @@ const clientRouter = express.Router()
 //POST
 
 clientRouter.post("/",(req,res) =>{
-    createClient(res)
+    createClient(req, res)
 });
 
 //GET
 
 clientRouter.get("/",(req,res) =>{
-    readClient(res)    
+    readClient(req, res)    
 });
 
 // PATCH
 
 clientRouter.patch("/",(req,res) =>{
-    updateClient(res)
+    updateClient(req, res)
 });
 
 //DELETE
 
 clientRouter.delete("/",(req,res) =>{
-    deleteClient(res)
+    deleteClient(req, res)
 });
 
 export default clientRouter

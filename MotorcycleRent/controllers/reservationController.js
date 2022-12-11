@@ -1,11 +1,23 @@
 //CRUD
 
+import reservationModel from "../models/reservationModel.js"
+
 //post
 
-export function createReservation(res){
-    //implementacion
-    res.sendStatus(200)
-    //res.json({mensaje:"usuario creado"})
+export async function createReservation(req, res){
+    
+    const {idReservacion, fechaInicio, fechaDevolucion, idMoto, idCliente}= req.body.reservacion
+    
+    const reservacionD = await reservationModel.create({  
+        idReservacion,
+        fechaInicio,
+        fechaDevolucion,
+        idMoto,
+        idCliente
+     })
+
+     res.status(201).json(reservacionD)
+    
 }
 
 // get

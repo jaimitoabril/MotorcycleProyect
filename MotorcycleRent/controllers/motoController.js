@@ -4,19 +4,22 @@ import motoModel from "../models/motoModel.js"
 
 //post
 
-export function createMoto(req, res){
+export async function createMoto(req, res){
     
-    const {llave, nombre, marca, modelo, descripcion}= req.body.moto
+    const {idMoto, nombre, marca, modelo, descripcion, idCategoria, idMensaje, idReservacion}= req.body.moto
     
-    motoModel.create({
-        llave,
-        nombre,
-        marca,
-        modelo,
-        descripcion
+    const motoD = await motoModel.create({
+        idMoto, 
+        nombre, 
+        marca, 
+        modelo, 
+        descripcion, 
+        idCategoria, 
+        idMensaje, 
+        idReservacion        
      })
 
-    res.sendStatus(200)
+    res.status(201).json(motoD)
     
 }
 

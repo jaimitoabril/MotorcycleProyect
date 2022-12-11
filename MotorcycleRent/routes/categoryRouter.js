@@ -5,8 +5,8 @@ const categoryRouter = express.Router()
 
 //POST
 
-categoryRouter.post("/",(req,res) =>{
-    createCategory(res)
+categoryRouter.post("/",(req, res) =>{
+    createCategory(req, res)
 });
 
 //GET

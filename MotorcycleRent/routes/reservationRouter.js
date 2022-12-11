@@ -6,25 +6,25 @@ const reservationRouter = express.Router()
 //POST
 
 reservationRouter.post("/",(req,res) =>{
-    createReservation(res)
+    createReservation(req, res)
 });
 
 //GET
 
 reservationRouter.get("/",(req,res) =>{
-    readReservation(res)    
+    readReservation(req, res)    
 });
 
 // PATCH
 
 reservationRouter.patch("/",(req,res) =>{
-    updateReservation(res)
+    updateReservation(req, res)
 });
 
 //DELETE
 
 reservationRouter.delete("/",(req,res) =>{
-    deleteReservation(res)
+    deleteReservation(req, res)
 });
 
 export default reservationRouter

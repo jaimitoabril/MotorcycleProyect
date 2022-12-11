@@ -5,26 +5,26 @@ const motoRouter = express.Router()
 
 //POST
 
-motoRouter.post("/",(req,res) =>{
-    createMoto(req,res)
+motoRouter.post("/",(req, res) =>{
+    createMoto(req, res)
 });
 
 //GET
 
-motoRouter.get("/",(req,res) =>{
-    readMoto(req,res)    
+motoRouter.get("/",(req, res) =>{
+    readMoto(req, res)    
 });
 
 // PATCH
 
-motoRouter.patch("/",(req,res) =>{
-    updateMoto(req,res)
+motoRouter.patch("/",(req, res) =>{
+    updateMoto(req, res)
 });
 
 //DELETE
 
-motoRouter.delete("/",(req,res) =>{
-    deleteMoto(req,res)
+motoRouter.delete("/",(req, res) =>{
+    deleteMoto(req, res)
 });
 
 export default motoRouter

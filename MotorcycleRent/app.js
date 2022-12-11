@@ -5,6 +5,7 @@ import clientRouter from "./routes/clientRouter.js";
 import messageRouter from "./routes/messageRouter.js";
 import motoRouter from "./routes/motoRouter.js";
 import reservationRouter from "./routes/reservationRouter.js";
+mongoose.set('strictQuery', false);
 
 
 const app = express();
@@ -21,8 +22,6 @@ mongoose.connect("mongodb+srv://motorcycleapp:motorcycleapp@clustermotorcycle.5u
     } else{
         console.log("La base de datos se encuentra conectada")
     }
-    
-
 })
 
 //Middlware

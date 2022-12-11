@@ -1,11 +1,21 @@
 //CRUD
 
+import messageModel from "../models/messageModel.js"
+
 //post
 
-export function createMessage(res){
-    //implementacion
-    res.sendStatus(200)
-    //res.json({mensaje:"usuario creado"})
+export async function createMessage(req, res){
+    
+    const {idMensaje, mensaje, idCliente}= req.body.mensaje
+    
+    const mensajeD = await messageModel.create({  
+        idMensaje, 
+        mensaje, 
+        idCliente
+     })
+
+     res.status(201).json(mensajeD)
+   
 }
 
 // get
