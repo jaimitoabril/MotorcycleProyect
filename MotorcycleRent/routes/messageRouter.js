@@ -11,19 +11,19 @@ messageRouter.post("/",(req,res) =>{
 
 //GET
 
-messageRouter.get("/",(req,res) =>{
+messageRouter.get("/:idMensaje",(req,res) =>{
     readMessage(req, res)    
 });
 
 // PATCH
 
-messageRouter.patch("/",(req,res) =>{
+messageRouter.patch("/:idMensaje",(req,res) =>{
     updateMessage(req, res)
 });
 
 //DELETE
 
-messageRouter.delete("/",(req,res) =>{
+messageRouter.delete("/:idMensaje",(req,res) =>{
     deleteMessage(req, res)
 });
 

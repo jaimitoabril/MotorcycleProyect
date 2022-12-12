@@ -6,37 +6,77 @@ import categoryModel from "../models/categoryModel.js"
 
 export async function createCategory(req, res){
     
-    const {idCategoria, nombre, descripcion, idMoto}= req.body.categoria
-    
-   const categoriaD = await categoryModel.create({  
-        idCategoria,
-        nombre,
-        descripcion,
-        idMoto
-     })
+    const categoria = req.body.categoria
+
+    let categoriaDoc 
+
+    try {
+        categoriaDoc = await categoryModel.create(categoria)
+    } catch (error) {
+        res.status(400).json(error.message)
+        return
+    }    
      
-     res.status(201).json(categoriaD)
+    res.status(201).json(categoriaDoc)
     
 }
 
 // get
 
-export function readCategory(res){
-    //implementacion
-    res.sendStatus(200)
+export async function readCategory(req, res){
+    
+    const idCategoria = req.params.idCategoria
+
+    let categoriaDoc
+
+    try {
+        categoriaDoc = await categoryModel.findOne({idCategoria})
+    } catch (error) {
+        res.status(400).json(error.message)
+        return
+        
+    }   
+
+    res.status(200).json(categoriaDoc)
 }
 
 // patch
-export function updateCategory(res){
-    //implementacion
-    res.sendStatus(200)
+export async function updateCategory(req, res){
+    
+    const idCategoria = req.params.idCategoria
+    const updates = req.body.updates
+    
+
+    let categoriaDoc
+
+    try {
+        categoriaDoc = await categoryModel.updateOne({idCategoria},updates)
+    } catch (error) {
+        res.status(400).json(error.message)
+        return
+        
+    }  
+
+    res.status(200).json(categoriaDoc)
+    
 }
 
 //delete
 
-export function deleteCategory(res){
-    //implementacion
-    res.sendStatus(200)
+export async function deleteCategory(req, res){
+    const idCategoria = req.params.idCategoria
+
+    let categoriaDoc
+
+    try {
+        categoriaDoc = await categoryModel.deleteOne({idCategoria})
+    } catch (error) {
+        res.status(400).json(error.message)
+        return
+        
+    }   
+
+    res.status(200).json(categoriaDoc)
 }
 
 

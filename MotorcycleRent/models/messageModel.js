@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 
 const messageModel = mongoose.Schema({
-    "idMensaje":Number,
-    "mensaje":String,
+    "idMensaje":{type:Number, required:true},
+    "mensaje":{type:String, required:true},
     "idCliente":Number
     
 })

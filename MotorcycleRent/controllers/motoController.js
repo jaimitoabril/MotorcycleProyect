@@ -6,41 +6,77 @@ import motoModel from "../models/motoModel.js"
 
 export async function createMoto(req, res){
     
-    const {idMoto, nombre, marca, modelo, descripcion, idCategoria, idMensaje, idReservacion}= req.body.moto
-    
-    const motoD = await motoModel.create({
-        idMoto, 
-        nombre, 
-        marca, 
-        modelo, 
-        descripcion, 
-        idCategoria, 
-        idMensaje, 
-        idReservacion        
-     })
+    const moto= req.body.moto
 
-    res.status(201).json(motoD)
+    let motoDoc
+
+
+    try {
+        motoDoc = await motoModel.create(moto)        
+    } catch (error) {
+        res.status(400).json(error.message)
+        return
+    }
+    
+
+    res.status(201).json(motoDoc)
     
 }
 
 // get
 
-export function readMoto(res){
-    
-    res.sendStatus(200)
+export async function readMoto(req, res){
+
+    const idMoto = req.params.idMoto
+
+    let motoDoc
+
+    try {
+        motoDoc = await motoModel.findOne({idMoto})
+    } catch (error) {
+        res.status(400).json(error.message)
+        return
+        
+    }
+
+     res.status(200).json(motoDoc)
 }
 
 // patch
-export function updateMoto(req, res){
+export async function updateMoto(req, res){
          
-    res.sendStatus(200)
+   const idMoto = req.params.idMoto
+   const updates = req.body.updates
+
+    let motoDoc
+
+    try {
+        motoDoc = await motoModel.updateOne({idMoto},updates)
+    } catch (error) {
+        res.status(400).json(error.message)
+        return
+        
+    }
+
+     res.status(200).json(motoDoc)
 }
 
 //delete
 
-export function deleteMoto(res){
-    //implementacion
-    res.sendStatus(200)
+export async function deleteMoto(req, res){
+    const idMoto = req.params.idMoto
+
+    let motoDoc
+
+    try {
+        motoDoc = await motoModel.deleteOne({idMoto})
+    } catch (error) {
+        res.status(400).json(error.message)
+        return
+        
+    }
+
+     res.status(200).json(motoDoc)
 }
 
 

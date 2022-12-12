@@ -11,19 +11,19 @@ reservationRouter.post("/",(req,res) =>{
 
 //GET
 
-reservationRouter.get("/",(req,res) =>{
+reservationRouter.get("/:idReservacion",(req,res) =>{
     readReservation(req, res)    
 });
 
 // PATCH
 
-reservationRouter.patch("/",(req,res) =>{
+reservationRouter.patch("/:idReservacion",(req,res) =>{
     updateReservation(req, res)
 });
 
 //DELETE
 
-reservationRouter.delete("/",(req,res) =>{
+reservationRouter.delete("/:idReservacion",(req,res) =>{
     deleteReservation(req, res)
 });
 

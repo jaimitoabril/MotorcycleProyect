@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 
 const categoryModel = mongoose.Schema({
-    "idCategoria":Number,
-    "nombre":String,    
-    "descripcion":String,
+    "idCategoria":{type:Number, required:true},
+    "nombre":{type:String, required:true},
+    "descripcion":{type:String, required:true},
     "idMoto":Number
 
 })

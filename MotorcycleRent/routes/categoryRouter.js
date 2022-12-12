@@ -11,20 +11,20 @@ categoryRouter.post("/",(req, res) =>{
 
 //GET
 
-categoryRouter.get("/",(req,res) =>{
-    readCategory(res)    
+categoryRouter.get("/:idCategoria",(req, res) =>{
+    readCategory(req, res)    
 });
 
 // PATCH
 
-categoryRouter.patch("/",(req,res) =>{
-    updateCategory(res)
+categoryRouter.patch("/:idCategoria",(req, res) =>{
+    updateCategory(req, res)
 });
 
 //DELETE
 
-categoryRouter.delete("/",(req,res) =>{
-    deleteCategory(res)
+categoryRouter.delete("/:idCategoria",(req, res) =>{
+    deleteCategory(req, res)
 });
 
 export default categoryRouter

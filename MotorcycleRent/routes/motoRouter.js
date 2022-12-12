@@ -11,19 +11,19 @@ motoRouter.post("/",(req, res) =>{
 
 //GET
 
-motoRouter.get("/",(req, res) =>{
+motoRouter.get("/:idMoto",(req, res) =>{
     readMoto(req, res)    
 });
 
 // PATCH
 
-motoRouter.patch("/",(req, res) =>{
+motoRouter.patch("/:idMoto",(req, res) =>{
     updateMoto(req, res)
 });
 
 //DELETE
 
-motoRouter.delete("/",(req, res) =>{
+motoRouter.delete("/:idMoto",(req, res) =>{
     deleteMoto(req, res)
 });
 

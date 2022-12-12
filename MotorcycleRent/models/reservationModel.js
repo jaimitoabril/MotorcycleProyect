@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 
 const reservationModel = mongoose.Schema({
-    "idReservacion":Number,
-    "fechaInicio":String,
-    "fechaDevolucion":String,
+    "idReservacion":{type:Number, required:true},
+    "fechaInicio":{type:String, required:true},
+    "fechaDevolucion":{type:String, required:true},
     "idMoto":Number,
     "idCliente":Number
 })

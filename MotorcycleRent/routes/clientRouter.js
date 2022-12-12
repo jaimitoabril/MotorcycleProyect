@@ -11,19 +11,19 @@ clientRouter.post("/",(req,res) =>{
 
 //GET
 
-clientRouter.get("/",(req,res) =>{
+clientRouter.get("/:idCliente",(req,res) =>{
     readClient(req, res)    
 });
 
 // PATCH
 
-clientRouter.patch("/",(req,res) =>{
+clientRouter.patch("/:idCliente",(req,res) =>{
     updateClient(req, res)
 });
 
 //DELETE
 
-clientRouter.delete("/",(req,res) =>{
+clientRouter.delete("/:idCliente",(req,res) =>{
     deleteClient(req, res)
 });
 

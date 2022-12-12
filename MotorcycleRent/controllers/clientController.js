@@ -6,38 +6,76 @@ import clientModel from "../models/clientModel.js"
 
 export async function createClient(req, res){
     
-    const {idCliente, email, nombre, edad, idMensaje, idReservacion}= req.body.cliente
-    
-    const clienteD = await clientModel.create({  
-        idCliente, 
-        email, 
-        nombre, 
-        edad, 
-        idMensaje,
-        idReservacion
-     })
+    const cliente= req.body.cliente
 
-    res.status(201).json(clienteD)
+    let clienteDoc
+
+    try {
+        clienteDoc = await clientModel.create(cliente)        
+    } catch (error) {
+        res.status(400).json(error.message)
+        return
+    }
+    
+
+    res.status(201).json(clienteDoc)
 }   
 
 // get
 
-export function readClient(req, res){
-    //implementacion
-    res.sendStatus(200)
+export async function readClient(req, res){
+    
+    const idCliente = req.params.idCliente
+    
+    let clienteDoc
+
+    try {
+        clienteDoc = await clientModel.findOne({idCliente})
+    } catch (error) {
+        res.status(400).json(error.message)
+        return
+        
+    }
+    
+   res.status(200).json(clienteDoc)
 }
 
 // patch
-export function updateClient(req, res){
-    //implementacion
-    res.sendStatus(200)
+export async function updateClient(req, res){
+
+    const idCliente = req.params.idCliente
+    const updates = req.body.updates
+    
+    let clienteDoc
+
+    try {
+        clienteDoc = await clientModel.updateOne({idCliente},updates)
+    } catch (error) {
+        res.status(400).json(error.message)
+        return
+        
+    }
+    
+   res.status(200).json(clienteDoc)
+   
 }
 
 //delete
 
-export function deleteClient(req, res){
-    //implementacion
-    res.sendStatus(200)
+export async function deleteClient(req, res){
+    const idCliente = req.params.idCliente
+    
+    let clienteDoc
+
+    try {
+        clienteDoc = await clientModel.deleteOne({idCliente})
+    } catch (error) {
+        res.status(400).json(error.message)
+        return
+        
+    }
+    
+   res.status(200).json(clienteDoc)
 }
 
 
