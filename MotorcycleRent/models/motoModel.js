@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const motoModel = mongoose.Schema({
 
-    "idMoto":{type:Number, required:true}, 
+    "idMoto":{type:Number, required:true, unique:true}, 
     "nombre":{type:String, required: true}, 
     "marca":{type:String, required: true}, 
     "modelo":{type:Number, required: true}, 
