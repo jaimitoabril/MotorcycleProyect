@@ -7,9 +7,8 @@ const motoModel = mongoose.Schema({
     "marca":{type:String, required: true}, 
     "modelo":{type:Number, required: true}, 
     "descripcion":{type:String, required: true}, 
-    "idCategoria":Number, 
-    "idMensaje":Number, 
-    "idReservacion":Number    
+    "idCategoria":Number
+     
 })
 
 export default mongoose.model("motorcycles", motoModel)
