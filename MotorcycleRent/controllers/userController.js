@@ -1,12 +1,18 @@
 //CRUD
 
 import userModel from "../models/userModel.js"
+import bcrypt from "bcrypt"
 
 //post
 
 export async function createUser(req, res){
     
     const usuario = req.body.usuario
+
+    const {password} = usuario
+
+    const encriptedPassword = await bcrypt.hash(password, 10)
+    usuario.password = encriptedPassword
 
     let usuarioDoc 
 
@@ -44,8 +50,15 @@ export async function readUser(req, res){
 export async function updateUser(req, res){
     
     const idUsuario = req.params.idUsuario
-    const updates = req.body.updates
     
+    const updates = req.body.updates
+
+    const {password} = updates
+
+    const encriptedPassword = await bcrypt.hash(password, 10)
+    updates.password = encriptedPassword
+
+        
 
     let usuarioDoc
 

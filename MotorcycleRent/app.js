@@ -1,3 +1,4 @@
+import cors from "cors";
 import mongoose from "mongoose";
 import  express  from "express";
 import categoryRouter from "./routes/categoryRouter.js";
@@ -34,4 +35,7 @@ app.use("/category",categoryRouter)
 app.use("/message",messageRouter)
 app.use("/moto",motoRouter)
 app.use("/reservation",reservationRouter)
+app.use(cors({
+    origin:"http:localhost:3000"
+}))
 
