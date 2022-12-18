@@ -42,6 +42,22 @@ export async function readMoto(req, res){
      res.status(200).json(motoDoc)
 }
 
+export async function readTMoto(req, res){
+
+    let motoDoc
+
+
+    try {
+        motoDoc = await motoModel.find()
+    } catch (error) {
+        res.status(400).json(error.message)
+        return
+        
+    }
+
+     res.status(200).json(motoDoc)
+}
+
 // patch
 export async function updateMoto(req, res){
          

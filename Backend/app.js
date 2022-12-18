@@ -36,6 +36,6 @@ app.use("/message",messageRouter)
 app.use("/moto",motoRouter)
 app.use("/reservation",reservationRouter)
 app.use(cors({
-    origin:"http:localhost:3000"
+    origin:"http://localhost:3000"
 }))
 

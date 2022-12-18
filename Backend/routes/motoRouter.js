@@ -1,5 +1,5 @@
 import express from "express";
-import { createMoto, deleteMoto, readMoto, updateMoto } from "../controllers/MotoController.js";
+import { createMoto, deleteMoto, readMoto,readTMoto, updateMoto } from "../controllers/MotoController.js";
 
 const motoRouter = express.Router()
 
@@ -15,6 +15,9 @@ motoRouter.get("/:idMoto",(req, res) =>{
     readMoto(req, res)    
 });
 
+motoRouter.get("/",(req, res) =>{
+    readTMoto(req, res)    
+});
 // PATCH
 
 motoRouter.patch("/:idMoto",(req, res) =>{
